@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joseph & Frances — Married in Japan</title>
+  <title>Joseph & Frances: Married in Japan</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Sen:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
     :root{--cream:#FAF8F5;--dark:#1a1a1a;--darker:#111111;--burgundy:#722F37;--gold:#B8977E;--text-dark:#1a1a1a;--text-grey:#888;--text-light:rgba(250,248,245,0.75)}
@@ -39,6 +39,7 @@
     .hero-right{background:url('images/hero.png') center center/cover no-repeat}
 
     .image-break{height:50vh;position:relative;overflow:hidden}
+    .image-break-short{height:35vh;position:relative;overflow:hidden}
     .image-break-bg{position:absolute;inset:0;background-size:cover;background-position:center}
     .image-break-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(26,26,26,0.08),rgba(26,26,26,0.22))}
     .prose p{margin-bottom:24px;max-width:720px}
@@ -99,6 +100,17 @@
     .flex-box{margin-top:48px;padding:36px;border:1px solid rgba(0,0,0,0.08);background:rgba(114,47,55,0.02)}
     .flex-box h4{font-family:'Sen',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--burgundy);margin-bottom:16px}
     .flex-box p{font-size:15px;color:var(--text-grey);line-height:1.7;max-width:720px}
+    .featured-venue-card{border:1px solid rgba(0,0,0,0.08);overflow:hidden;margin-bottom:30px}
+    .featured-venue-gallery{display:grid;grid-template-columns:2fr 1fr;gap:3px;height:400px}
+    .featured-venue-gallery .gallery-main{width:100%;height:100%;object-fit:cover;display:block}
+    .featured-venue-gallery .gallery-side{display:flex;flex-direction:column;gap:3px}
+    .featured-venue-gallery .gallery-side img{flex:1;width:100%;min-height:0;object-fit:cover;display:block}
+    .featured-venue-body{padding:36px 40px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .featured-venue-body h3{margin-bottom:12px;font-size:clamp(24px,2.5vw,32px)}
+    .featured-venue-body p{color:var(--text-grey);font-size:15px;line-height:1.7}
+    .featured-venue-meta{display:flex;flex-direction:column;gap:20px}
+    .featured-venue-meta-item h4{font-family:'Sen',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--burgundy);margin-bottom:6px}
+    .featured-venue-meta-item p{color:var(--text-grey);font-size:14px;line-height:1.6;margin:0}
     @media(max-width:768px){
       .container{padding:0 28px}
       .hero-split{grid-template-columns:1fr;min-height:auto}
@@ -108,6 +120,7 @@
       .section-light-large,.section-dark-large{padding:100px 0}
       .section-burgundy{padding:100px 0}
       .image-break{height:35vh}
+      .image-break-short{height:28vh}
       .handle-grid{grid-template-columns:1fr}
       .steps-grid{grid-template-columns:1fr;gap:36px}
       .guest-scale-grid{grid-template-columns:1fr;gap:16px}
@@ -148,10 +161,6 @@
 </section>
 
 <!-- IMAGE BREAK: Tokyo -->
-<div class="image-break">
-  <div class="image-break-bg" style="background:url('images/tokyo-night.png') center center/cover no-repeat;"></div>
-  <div class="image-break-overlay"></div>
-</div>
 
 <!-- TIMELINE -->
 <section class="section-dark-large">
@@ -168,6 +177,7 @@
       <div class="timeline-item"><div class="timeline-number">05</div><div class="timeline-title">Mar 27</div><div class="timeline-desc">Recovery day</div></div>
       <div class="timeline-item"><div class="timeline-number">06</div><div class="timeline-title">Mar 28+</div><div class="timeline-desc">Okinawa honeymoon</div></div>
     </div>
+    <p style="color:var(--text-light);font-size:13px;margin-top:32px;opacity:0.7;">* These dates and city durations are a starting point. We can extend time in any city, shorten it, shift the dates, or restructure the order entirely. Consider this directional rather than fixed.</p>
   </div>
 </section>
 
@@ -204,10 +214,6 @@
 </section>
 
 <!-- IMAGE BREAK: Shinkansen -->
-<div class="image-break">
-  <div class="image-break-bg" style="background:url('images/shinkansen.png') center center/cover no-repeat;"></div>
-  <div class="image-break-overlay"></div>
-</div>
 
 <!-- KYOTO: STAG & HEN -->
 <section class="section-dark-large">
@@ -241,10 +247,6 @@
 </section>
 
 <!-- IMAGE BREAK: Kyoto -->
-<div class="image-break">
-  <div class="image-break-bg" style="background:url('images/kyoto-spring.png') center center/cover no-repeat;"></div>
-  <div class="image-break-overlay"></div>
-</div>
 
 <!-- FLEXIBILITY PAGE -->
 <section class="section-light">
@@ -274,10 +276,6 @@
 </section>
 
 <!-- IMAGE BREAK: Osaka energy -->
-<div class="image-break">
-  <div class="image-break-bg" style="background:url('images/osaka-energy.png') center center/cover no-repeat;"></div>
-  <div class="image-break-overlay"></div>
-</div>
 
 <!-- OSAKA ARRIVAL & PREP -->
 <section class="section-dark">
@@ -307,31 +305,58 @@
 
     <h3 style="margin-top:60px;margin-bottom:12px;">Ceremony Setting</h3>
     <p style="color:var(--text-grey);margin-bottom:8px;">You want something nature-adjacent, non-religious, and not overly elaborate. Western-style but in a setting that could only be Japan. Here are three directions we have researched in Osaka.</p>
-    <div class="options-grid">
-      <div class="option-card">
-        <img src="images/venue-bayside.png" alt="Bayside garden venue with cherry blossoms and water" class="option-card-img">
-        <div class="option-card-body">
+    <!-- Featured: Bayside Garden Estate -->
+    <div class="featured-venue-card">
+      <div class="featured-venue-gallery">
+        <img src="images/bayside-aerial.jpg" alt="Aerial view of Bayside Garden Estate grounds with lake and bay beyond" class="gallery-main">
+        <div class="gallery-side">
+          <img src="images/bayside-night.jpg" alt="Outdoor reception under tent with string lights at night">
+          <img src="images/bayside-couple.jpg" alt="Couple in open field with wide sky at Bayside Estate">
+        </div>
+      </div>
+      <div class="featured-venue-body">
+        <div>
           <div class="option-tag">Our Pick</div>
           <div class="accent-line-small"></div>
           <h3>Bayside Garden Estate</h3>
-          <p>A sprawling waterfront venue with private gardens, bay views, and on-site accommodation. Ceremony, reception with dancing, and after-party all in one place. No moving between locations. Zero vendor restrictions: you bring your own photographer, florist, DJ, everything without surcharges. The venue hosts one wedding per day, meaning the entire property is yours. Open-air and semi-indoor spaces support a DJ and dancing without restrictions. On-site rooms from $50/night for guests. This is the strongest fit for your budget, your vibe, and your guest count. Estimated venue + catering + drinks for 100: $7,000 – $14,500.</p>
+          <p>A sprawling waterfront estate on the Osaka bay, with 13,000 square metres of private grounds, a lake, forest paths, and open fields. The ceremony, the reception, the dancing, the after-party, all in one place. No shuttles. No moving between locations. The property is exclusively yours for the day.</p>
+          <p style="margin-top:16px;">Zero vendor restrictions: you bring your own photographer, florist, DJ, and catering without surcharges or approved vendor lists. On-site accommodation is available for guests who want to stay the night. This is the strongest fit for your budget, your vibe, and your guest count.</p>
+        </div>
+        <div class="featured-venue-meta">
+          <div class="featured-venue-meta-item">
+            <h4>Why it works for you</h4>
+            <p>They have indicated they operate with more flexibility than most Japanese wedding venues, with more latitude around music, format, and how the night runs than you would typically find. The wide open field setting is nature-adjacent and unmistakably Japan, without being a hotel ballroom.</p>
+          </div>
+          <div class="featured-venue-meta-item">
+            <h4>Estimated cost · 100 guests</h4>
+            <p>Venue + catering + nomihodai: $7,000 – $14,500</p>
+          </div>
+          <div class="featured-venue-meta-item">
+            <h4>Sole Use</h4>
+            <p>No other events, no shared spaces, no competing weddings. The entire property is booked exclusively for you. Everything runs on your schedule, at your pace.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two additional venues -->
+    <div class="options-grid" style="grid-template-columns:1fr 1fr;">
+      <div class="option-card">
+        <img src="images/venue-castle-rooftop.webp" alt="Forest chapel interior with floor-to-ceiling windows" class="option-card-img">
+        <div class="option-card-body">
+          <div class="option-tag">Forest Estate</div>
+          <div class="accent-line-small"></div>
+          <h3>Tsurumi-no-Mori Geihinkan</h3>
+          <p>A forest estate in Tsurumi Ryokuchi Park, Osaka, set on 13,200 square metres of private woodland. The venue was built to host state guests during Japan's 1990 International Garden and Greenery Exposition and has operated as a high-end wedding venue since. The ceremony takes place in an open-air forest chapel surrounded by trees, with a signature ceremony tree as the centrepiece. Reception is in a dedicated indoor hall with French-Japanese course menus. Free shuttle bus runs from Namba. More formal than the Bayside option, with a structured catering package rather than open vendor selection. Estimated venue + catering + drinks for 100: $15,000 – $22,000.</p>
         </div>
       </div>
       <div class="option-card">
         <img src="images/venue-castle.png" alt="Outdoor ceremony setup with Osaka Castle in the background" class="option-card-img">
         <div class="option-card-body">
-          <div class="option-tag">Castle Views</div>
-          <div class="accent-line-small"></div>
-          <h3>Castle Rooftop Terrace</h3>
-          <p>A rooftop venue inside a renovated historic building directly adjacent to Osaka Castle. Unobstructed views of the castle tower. The terrace operates as a BBQ and beer garden during warmer months, meaning it is structurally and culturally prepared for amplified music, buffet dining, and a high-energy party. Rooftop chapel for the ceremony, then move downstairs or stay on the terrace for the reception. Open March through October, so the timing works perfectly. More central than the Bayside option. Estimated venue + catering + drinks for 100: $14,000 – $21,000.</p>
-        </div>
-      </div>
-      <div class="option-card">
-        <div class="option-card-noimg">
           <div class="option-tag">Your Research</div>
           <div class="accent-line-small"></div>
           <h3>Osaka Castle (Nishinomaru Garden)</h3>
-          <p>You have been researching this venue, and we want to be transparent about what we found. The Nishinomaru Garden ceremony is stunning: 300 cherry trees, Osaka Castle as your backdrop. But the venue is operated as a state guesthouse. Pricing for 100 guests starts at $30,000 and up for a bundled package. No buffet option, only seated French courses. Dancing is restricted due to the formal interior. External photographers, florists, and DJs are not permitted. If you love the castle setting, the Rooftop Terrace option above gives you the same views at a fraction of the cost, with none of the restrictions.</p>
+          <p>You have been researching this venue, and we want to be transparent about what we found. The Nishinomaru Garden ceremony is stunning: 300 cherry trees, Osaka Castle as your backdrop. But the venue is operated as a state guesthouse. Pricing for 100 guests starts at $30,000 and up for a bundled package. No buffet option, only seated French courses. Dancing is restricted due to the formal interior. External photographers, florists, and DJs are not permitted. If you love the castle setting, the Tsurumi-no-Mori option above gives you the same forest atmosphere at a fraction of the cost, with none of the restrictions.</p>
         </div>
       </div>
     </div>
@@ -375,10 +400,6 @@
 </section>
 
 <!-- IMAGE BREAK: Osaka night -->
-<div class="image-break">
-  <div class="image-break-bg" style="background:url('images/osaka-night.png') center center/cover no-repeat;"></div>
-  <div class="image-break-overlay"></div>
-</div>
 
 <!-- RECOVERY & HONEYMOON -->
 <section class="section-dark">
@@ -394,10 +415,6 @@
 </section>
 
 <!-- IMAGE BREAK: Japan detail -->
-<div class="image-break">
-  <div class="image-break-bg" style="background:url('images/japan-detail.png') center center/cover no-repeat;"></div>
-  <div class="image-break-overlay"></div>
-</div>
 
 <!-- WHAT WE HANDLE -->
 <section class="section-dark-large">
@@ -463,7 +480,7 @@
 
     <div class="investment-box">
       <div class="label label-dark" style="margin-bottom:0;">Our Planning Fee</div>
-      <div class="fee-amount">$X USD</div>
+      <div class="fee-amount">$8,500 USD</div>
       <div class="fee-note">Covers full planning, coordination, and day-of management for your wedding week across all three cities.</div>
     </div>
 
@@ -477,8 +494,8 @@
         <tr><td>Florals &amp; decor</td><td>$1,400 – $3,700</td></tr>
         <tr><td>Photography (8–10 hours, bilingual)</td><td>$1,500 – $4,500</td></tr>
         <tr><td>Hair &amp; makeup (bride + 5 bridesmaids)</td><td>$700 – $2,000</td></tr>
-        <tr><td>Planning fee</td><td>$X</td></tr>
-        <tr class="total-row"><td>Wedding Day Total (100 guests)</td><td>$11,250 – $26,400 + fee</td></tr>
+        <tr><td>Planning fee</td><td>$8,500</td></tr>
+        <tr class="total-row"><td>Wedding Day Total (100 guests)</td><td>$19,750 – $34,900</td></tr>
       </tbody>
     </table>
 
